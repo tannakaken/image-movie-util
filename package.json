@@ -1,0 +1,47 @@
+{
+  "name": "image-movie-util",
+  "version": "0.0.1",
+  "description": "image movie util",
+  "repository": "https://github.com/tannakaken/image-movie-util.git",
+  "author": "tannakaken <tannakaken@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "main": "dist/main.js",
+  "scripts": {
+    "dev": "rimraf dist && run-p dev:*",
+    "build": "cross-env NODE_ENV=\"production\" webpack --progress",
+    "dev:webpack": "cross-env NODE_ENV=\"development\" webpack --progress",
+    "dev:electron": "wait-on ./dist/index.html ./dist/main.js && electronmon ."
+  },
+  "electronmon": {
+    "patterns": [
+      "dist/**/*"
+    ]
+  },
+  "devDependencies": {
+    "@types/fluent-ffmpeg": "^2.1.20",
+    "@types/node": "^18.11.18",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.7.3",
+    "electron": "^22.1.0",
+    "electronmon": "^2.0.2",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.7.2",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^4.1.2",
+    "ts-loader": "^9.4.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4",
+    "wait-on": "^7.0.1",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  },
+  "dependencies": {
+    "fluent-ffmpeg": "^2.1.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-loading": "^2.0.3"
+  }
+}
