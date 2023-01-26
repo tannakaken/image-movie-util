@@ -50,8 +50,8 @@ ipcMain.handle(IPC_KEYS.REQUEST_OPEN_DIR, async (event: IpcMainInvokeEvent, numb
       
   });
 
-ipcMain.handle(IPC_KEYS.REQUEST_OPEN_FILE_PLACE, (event: IpcMainInvokeEvent, path: string) => {
-  shell.showItemInFolder(path); // TODO ファイルマネージャーが開かない！！！
+ipcMain.handle(IPC_KEYS.REQUEST_OPEN_FILE_PLACE, (event: IpcMainInvokeEvent, filePath: string) => {
+  shell.showItemInFolder(filePath); // TODO ファイルマネージャーが開かない！！！
 })
 
 app.whenReady().then(() => {

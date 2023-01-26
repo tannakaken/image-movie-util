@@ -8,5 +8,5 @@ declare global {
 
 export interface IAPI {
     requestOpenDir: (numberOfDigits: number, listner: (webmPath: string | null, error: string | null) => void) => void;
-    requestOpenFilePlace: (path: string) => void;
+    requestOpenFilePlace: (filePath: string) => void;
 }

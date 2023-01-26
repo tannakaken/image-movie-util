@@ -11,7 +11,7 @@ contextBridge.exposeInMainWorld(NATIVE_API, {
             ipcRenderer.removeAllListeners(IPC_KEYS.CREATE_WEBM_RESPONSE);
           }
     },
-    requestOpenFilePlace: (path: string) => {
-      ipcRenderer.invoke(IPC_KEYS.REQUEST_OPEN_FILE_PLACE, path);
+    requestOpenFilePlace: (filePath: string) => {
+      ipcRenderer.invoke(IPC_KEYS.REQUEST_OPEN_FILE_PLACE, filePath);
     }
 });
