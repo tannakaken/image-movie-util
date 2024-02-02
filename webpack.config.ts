@@ -1,5 +1,5 @@
 /** エディタで補完を効かせるために型定義をインポート */
-import { Configuration } from 'webpack';
+import { Configuration, DefinePlugin } from 'webpack';
 
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
@@ -78,6 +78,14 @@ const main: Configuration = {
   entry: {
     main: './src/main.ts',
   },
+  plugins: [
+    new DefinePlugin({
+      // これがないとffmpeg-fluentでビルドが失敗する。
+      // 以下を参考にした。
+      // https://github.com/fluent-ffmpeg/node-fluent-ffmpeg/issues/573
+      'process.env.FLUENTFFMPEG_COV': false
+    }),
+  ],
 };
 
 // プリロードスクリプト向け設定
@@ -109,7 +117,6 @@ const renderer: Configuration = {
       // テンプレート
       template: './src/web/index.html',
     }),
-    
   ],
 };
 
