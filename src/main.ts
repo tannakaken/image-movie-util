@@ -50,8 +50,8 @@ ipcMain.handle(IPC_KEYS.REQUEST_OPEN_DIR, async (event: IpcMainInvokeEvent, numb
 });
 
 ipcMain.handle(IPC_KEYS.REQUEST_OPEN_FILE_PLACE, (event: IpcMainInvokeEvent, filePath: string) => {
-  shell.showItemInFolder(filePath); // TODO ファイルマネージャーが開かない！！！
-})
+  shell.showItemInFolder(filePath.normalize());
+});
 
 app.whenReady().then(() => {
   // アプリの起動イベント発火で BrowserWindow インスタンスを作成

@@ -47,8 +47,10 @@ export const App = () => {
           />
         </div>
         <button
+          type="button"
           onClick={() => {
             setProcessing(true);
+            setError(null);
             window.nativeApi.requestOpenDir(
               numberOfDigits,
               (createdWebm, error) => {
@@ -58,7 +60,7 @@ export const App = () => {
                   return;
                 }
                 setError(null);
-                setWebm("file:///" + createdWebm);
+                setWebm(createdWebm);
               }
             );
           }}
@@ -74,8 +76,15 @@ export const App = () => {
             alignItems: "center",
           }}
         >
-          <video autoPlay controls src={webm} width="400px" height="300px" />
+          <video
+            autoPlay
+            controls
+            src={`file://${webm}`}
+            width="400px"
+            height="300px"
+          />
           <button
+            type="button"
             onClick={() => {
               window.nativeApi.requestOpenFilePlace(webm);
             }}
